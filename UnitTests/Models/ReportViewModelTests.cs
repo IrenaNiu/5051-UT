@@ -33,5 +33,20 @@ namespace UnitTests.Models
             Assert.IsNotNull(result);
         }
 
+        [TestMethod]
+        public void ReportViewModel_NumberOfUsers_Set_Default_Should_Pass()
+        {
+            // Arrange 
+            var myTest = new ReportViewModel();
+            int myNumber = 5;
+
+            // Act 
+            myTest.NumberOfUsers = myNumber;
+            var result = myTest.NumberOfUsers;
+
+            // Assert 
+            Assert.AreEqual(5, result);
+        }
+
     }
 }
