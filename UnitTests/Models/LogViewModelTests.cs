@@ -13,10 +13,10 @@ namespace UnitTests.Models
             // Arange
 
             // Act
-
+            var result = new LogViewModel();
 
             // Assert
-            
+            Assert.IsNotNull(result);
         }
     }
 }
