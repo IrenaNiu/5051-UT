@@ -49,7 +49,7 @@ namespace UnitTests.Models
         }
 
         [TestMethod]
-        public void ReportViewModel_Get_Default_Should_Pass()
+        public void ReportViewModel_LogViewModel_Get_Default_Should_Pass()
         {
             // Arrange 
             var myTest = new ReportViewModel();
@@ -59,6 +59,24 @@ namespace UnitTests.Models
 
             // Assert 
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void ReportViewModel_LogViewModel_Set_Default_Should_Pass()
+        {
+            // Arrange 
+            var myTest = new ReportViewModel();
+            var myLogView = new LogViewModel();
+            var myList = new List<LogModel>();
+            myList.Add(new LogModel { PhoneID = "Phone" });
+
+            // Act 
+            myTest.LogViewModel = myLogView;
+            myLogView.LogList = myList;
+            var result = myTest.LogViewModel.LogList;
+
+            // Assert 
+            Assert.AreEqual("Phone", result[0].PhoneID);
         }
     }
 }
