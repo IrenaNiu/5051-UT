@@ -49,7 +49,7 @@ namespace UnitTests.Models
             var result = myTest.Update(null);
 
             // Assert
-            Assert.AreEqual(result, false);
+            Assert.AreEqual(false, result);
         }
 
         [TestMethod]
