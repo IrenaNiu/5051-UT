@@ -156,5 +156,19 @@ namespace UnitTests.Backend
             Assert.AreEqual(oldItem.RecordedDateTime, newItem.RecordedDateTime);
             Assert.AreEqual(oldItem.Value, newItem.Value);
         }
+
+        [TestMethod]
+        public void LogBackend_Create_InValid_Null_Should_Fail()
+        {
+            // Arange
+
+            // Act
+            var newItem = LogBackend.Instance.Create(null);
+
+            // Check each item one by one to ensure it is correctly loaded
+
+            // Assert
+            Assert.AreEqual(null, newItem);
+        }
     }
 }
