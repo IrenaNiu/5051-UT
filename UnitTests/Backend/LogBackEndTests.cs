@@ -84,6 +84,22 @@ namespace UnitTests.Backend
             Assert.AreNotEqual(oldItem.ID, newItem.ID);
         }
 
+        [TestMethod]
+        public void LogBackend_Delete_InValid_Bogus_Item_Should_Pass()
+        {
+            // Delete the first item from the list, and then check the list to verify it is gone
+
+            // Arange
+            var myData = LogBackend.Instance.Index();
+
+            // Act
+            var newItem = LogBackend.Instance.Delete("bogus");
+
+            // Assert
+            Assert.AreEqual(false, newItem);
+        }
+
+
 
     }
 }
