@@ -48,5 +48,25 @@ namespace UnitTests.Backend
             Assert.AreNotEqual(oldPhoneID, newItem.PhoneID);
         }
 
+        [TestMethod]
+        public void LogBackEnd_Update_InValid_Bogus_Item_Should_Pass()
+        {
+            // Arange
+            var myData = LogBackend.Instance.Index();
+            var oldItem = myData.LogList.First();
+
+            var newItem = new LogModel();
+            newItem.ID = "bogus";
+
+            // Act
+            var result = LogBackend.Instance.Update(newItem);
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+
+
+
     }
 }
