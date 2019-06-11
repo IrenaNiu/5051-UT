@@ -87,10 +87,8 @@ namespace UnitTests.Backend
         [TestMethod]
         public void LogBackend_Delete_InValid_Bogus_Item_Should_Pass()
         {
-            // Delete the first item from the list, and then check the list to verify it is gone
 
             // Arange
-            var myData = LogBackend.Instance.Index();
 
             // Act
             var newItem = LogBackend.Instance.Delete("bogus");
@@ -122,5 +120,19 @@ namespace UnitTests.Backend
             Assert.AreEqual(oldItem.RecordedDateTime, newItem.RecordedDateTime);
             Assert.AreEqual(oldItem.Value, newItem.Value);
         }
+
+        [TestMethod]
+        public void LogBackend_Read_InValid_Bogus_Item_Should_Pass()
+        {
+            // Arange
+
+            // Act
+            var newItem = LogBackend.Instance.Read("bogus");
+
+            // Assert
+            Assert.AreEqual(null, newItem);
+        }
+
+
     }
 }
