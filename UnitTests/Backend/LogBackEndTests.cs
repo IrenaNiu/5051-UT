@@ -65,7 +65,24 @@ namespace UnitTests.Backend
             Assert.AreEqual(null, result);
         }
 
+        [TestMethod]
+        public void LogBackend_Delete_First_Item_Should_Pass()
+        {
+            // Delete the first item from the list, and then check the list to verify it is gone
 
+            // Arange
+            var myData = LogBackend.Instance.Index();
+
+            // Get the first item from the list
+            var oldItem = myData.LogList.First();
+
+            // Act
+            var result = LogBackend.Instance.Delete(oldItem.ID);
+            var newItem = myData.LogList.First();
+
+            // Assert
+            Assert.AreNotEqual(oldItem.ID, newItem.ID);
+        }
 
 
     }
